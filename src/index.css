@@ -1,0 +1,91 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 346 84% 61%;
+    --primary-foreground: 355 100% 97%;
+    --secondary: 346 84% 95%;
+    --secondary-foreground: 346 84% 61%;
+    --muted: 346 84% 95%;
+    --muted-foreground: 346 38% 41%;
+    --accent: 346 84% 95%;
+    --accent-foreground: 346 84% 61%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 346 84% 91%;
+    --input: 346 84% 91%;
+    --ring: 346 84% 61%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+.valentine-button {
+  @apply relative px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95;
+}
+
+.yes-button {
+  @apply bg-primary text-white hover:bg-primary/90;
+}
+
+.no-button {
+  @apply bg-secondary text-primary hover:bg-secondary/90;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.heart {
+  position: absolute;
+  animation: floatHeart 4s ease-in infinite;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
